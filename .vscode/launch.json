@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'your_project_name'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=your_project_name", // Or --lib if it's a library example
+                    "--package=your_project_name"
+                ],
+                "filter": {
+                    "name": "your_project_name",
+                    "kind": "bin" // Or "lib"
+                }
+            },
+            "args": [], // Command line arguments for your program
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'your_project_name'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=your_project_name", // Or --lib
+                    "--package=your_project_name"
+                ],
+                "filter": {
+                    "name": "your_project_name",
+                    "kind": "bin" // Or "lib"
+                }
+            },
+            "args": [], // Arguments to pass to the test harness
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
